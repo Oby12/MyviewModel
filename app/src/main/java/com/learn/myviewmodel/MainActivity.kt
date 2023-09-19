@@ -2,20 +2,25 @@ package com.learn.myviewmodel
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.learn.myviewmodel.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var activityMainBinding : ActivityMainBinding
-    private lateinit var viewModel : MainViewModel
+    //private lateinit var viewModel : MainViewModel
+
+    //Anda juga dapat menyingkat lagi kode untuk inisialisasi ViewModel di
+    //atas dengan memanfaatkan delegation by viewModels()
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        //viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         displayResult()
 
