@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
+        //below is cara menyambungkan kelas MainViewModel dengan MainActivity
         //viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         displayResult()
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
                     activityMainBinding.edtLength.error = "Masih kosong"
                 }
                 else -> {
+                    //below is  Mendapatkan Value dari ViewModel
                     viewModel.calculate(width, height, length)
                     displayResult()
                 }
